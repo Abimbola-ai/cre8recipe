@@ -1,47 +1,25 @@
-import React, { useState } from 'react'
-import axios from 'axios'
+// export default RecipeSearch
+import React from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom' // Import BrowserRouter and Route
+import HomePage from './components/homescreen/HomePage'
+import RecipeListPage from './components/recipepage/RecipeListPage'
+// import SearchResultsPage from './components/SearchResultsPage'
+// import RecipeDetailsPage from './components/RecipeDetailsPage'
+// import NotFoundPage from './components/NotFoundPage'
 
-const RecipeSearch = () => {
-  const [recipes, setRecipes] = useState([])
-  const [query, setQuery] = useState('')
-
-  const fetchRecipes = async () => {
-    try {
-      const response = await axios.get(
-        `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&query=${query}`
-      )
-      setRecipes(response.data.results)
-    } catch (error) {
-      console.error('Error fetching recipes:', error)
-    }
-  }
-
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    fetchRecipes()
-  }
-
+const App = () => {
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Enter ingredients..."
-        />
-        <button type="submit">Search</button>
-      </form>
-      <div>
-        {recipes.map((recipe) => (
-          <div key={recipe.id}>
-            <h2>{recipe.title}</h2>
-            <img src={recipe.image} alt={recipe.title} />
-          </div>
-        ))}
+    <Router>
+      <div className="App">
+        {/* Use Routes instead of Switch */}
+        <Routes>
+          {/* Route for the home page */}
+          <Route exact path="/" element={<HomePage />} />
+          <Route path="/recipes" element={<RecipeListPage />} />
+        </Routes>
       </div>
-    </div>
+    </Router>
   )
 }
 
-export default RecipeSearch
+export default App
