@@ -104,3 +104,11 @@ body {
 .additional-icons-section {
   background: white;
 }
+
+.top-detail {
+  background: #7bb7b4;
+}
+
+.no-underline {
+  text-decoration: none;
+}
