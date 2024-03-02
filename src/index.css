@@ -3,7 +3,7 @@ body {
 }
 
 body {
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 .unified {
   background: #7bb7b4;
@@ -91,4 +91,12 @@ body {
 
 .additional-icon-text {
   font-size: 0.5rem;
+}
+
+.search-results {
+  background: #7bb7b4;
+}
+
+.card-body {
+  background: #b5f5f2;
 }
