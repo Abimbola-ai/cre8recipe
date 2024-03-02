@@ -1,5 +1,9 @@
+// RecipeSearch.js
+/*This component will handle the search functionality, 
+including making API requests to fetch recipes based on user input.*/
 import React, { useState } from 'react'
 import axios from 'axios'
+import RecipeList from './components/RecipeList'
 
 const RecipeSearch = () => {
   const [recipes, setRecipes] = useState([])
@@ -7,6 +11,8 @@ const RecipeSearch = () => {
 
   const fetchRecipes = async () => {
     try {
+      console.log(process.env.REACT_APP_SPOONACULAR_API_KEY)
+
       const response = await axios.get(
         `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&query=${query}`
       )
@@ -32,14 +38,7 @@ const RecipeSearch = () => {
         />
         <button type="submit">Search</button>
       </form>
-      <div>
-        {recipes.map((recipe) => (
-          <div key={recipe.id}>
-            <h2>{recipe.title}</h2>
-            <img src={recipe.image} alt={recipe.title} />
-          </div>
-        ))}
-      </div>
+      <RecipeList recipes={recipes} />
     </div>
   )
 }
