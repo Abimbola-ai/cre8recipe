@@ -2,7 +2,7 @@ import React from 'react'
 
 const AdditionalIconsSection = () => {
   return (
-    <section className="icons-section mt-5 ">
+    <section className="additional-icons-section mt-5 fixed-bottom">
       <div className="row p-3 text-center">
         <div className="col">
           <i className="material-icons additional-icon-list">explore</i>
