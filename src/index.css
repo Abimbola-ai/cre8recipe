@@ -112,3 +112,7 @@ body {
 .no-underline {
   text-decoration: none;
 }
+
+.btn-custom:hover button {
+  background-color: #b5f5f2;
+}
