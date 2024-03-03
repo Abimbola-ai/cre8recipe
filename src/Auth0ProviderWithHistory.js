@@ -1,53 +1,16 @@
-// // import React from 'react'
-// // import PropTypes from 'prop-types' // Import PropTypes
-// // import { Auth0Provider } from '@auth0/auth0-react'
-// // import { useNavigate } from 'react-router-dom'
-
-// // const Auth0ProviderWithHistory = ({ children }) => {
-// //   const domain = process.env.REACT_APP_AUTH0_DOMAIN
-// //   const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID
-
-// //   const navigate = useNavigate()
-
-// //   const onRedirectCallback = (appState) => {
-// //     navigate(appState?.returnTo || window.location.pathname)
-// //   }
-
-// //   return (
-// //     <Auth0Provider
-// //       domain={domain}
-// //       clientId={clientId}
-// //       redirectUri={window.location.origin}
-// //       onRedirectCallback={onRedirectCallback}
-// //     >
-// //       {children}
-// //     </Auth0Provider>
-// //   )
-// // }
-
-// // // Add prop type validation
-// // Auth0ProviderWithHistory.propTypes = {
-// //   children: PropTypes.node.isRequired, // Validate children prop
-// // }
-
-// // export default Auth0ProviderWithHistory
 // import React from 'react'
 // import PropTypes from 'prop-types' // Import PropTypes
 // import { Auth0Provider } from '@auth0/auth0-react'
+// import { useNavigate } from 'react-router-dom'
 
-// const Auth0ProviderWithHistory = ({ children, history }) => {
+// const Auth0ProviderWithHistory = ({ children }) => {
 //   const domain = process.env.REACT_APP_AUTH0_DOMAIN
 //   const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID
 
-//   //   const onRedirectCallback = () => {
-//   //     history.push('/user')
-//   //   }
+//   const navigate = useNavigate()
+
 //   const onRedirectCallback = (appState) => {
-//     history.push(
-//       appState && appState.targetUrl
-//         ? appState.targetUrl
-//         : (window.location.href = 'https://cre8recipe.netlify.app/user')
-//     )
+//     navigate(appState?.returnTo || window.location.pathname)
 //   }
 
 //   return (
@@ -62,24 +25,29 @@
 //   )
 // }
 
-// // Add PropTypes validation
+// // Add prop type validation
 // Auth0ProviderWithHistory.propTypes = {
-//   children: PropTypes.node.isRequired,
-//   history: PropTypes.object.isRequired,
+//   children: PropTypes.node.isRequired, // Validate children prop
 // }
 
 // export default Auth0ProviderWithHistory
 import React from 'react'
 import PropTypes from 'prop-types' // Import PropTypes
 import { Auth0Provider } from '@auth0/auth0-react'
-import { useHistory } from 'react-router-dom' // Import useHistory hook
 
-const Auth0ProviderWithHistory = ({ children }) => {
+const Auth0ProviderWithHistory = ({ children, history }) => {
   const domain = process.env.REACT_APP_AUTH0_DOMAIN
   const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID
-  const history = useHistory() // Use useHistory hook to access history object
 
+  //   const onRedirectCallback = () => {
+  //     history.push('/user')
+  //   }
   const onRedirectCallback = (appState) => {
+    // history.push(
+    //   appState && appState.targetUrl
+    //     ? appState.targetUrl
+    //     : (window.location.href = 'https://cre8recipe.netlify.app/user')
+    // )
     history.push(
       appState && appState.targetUrl ? appState.targetUrl : '/user' // Redirect to '/user' route after successful authentication
     )
@@ -100,6 +68,7 @@ const Auth0ProviderWithHistory = ({ children }) => {
 // Add PropTypes validation
 Auth0ProviderWithHistory.propTypes = {
   children: PropTypes.node.isRequired,
+  history: PropTypes.object.isRequired,
 }
 
 export default Auth0ProviderWithHistory
