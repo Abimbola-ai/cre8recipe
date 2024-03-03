@@ -1,16 +1,17 @@
 import React from 'react'
-import PropTypes from 'prop-types' // Import PropTypes
+import PropTypes from 'prop-types'
 import { Auth0Provider } from '@auth0/auth0-react'
-import { useNavigate } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 const Auth0ProviderWithHistory = ({ children }) => {
   const domain = process.env.REACT_APP_AUTH0_DOMAIN
   const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID
-
-  const navigate = useNavigate()
+  const history = useHistory()
 
   const onRedirectCallback = (appState) => {
-    navigate(appState?.returnTo || window.location.pathname)
+    history.push(
+      appState && appState.targetUrl ? appState.targetUrl : '/user' // Redirect to the home page after authentication
+    )
   }
 
   return (
@@ -25,47 +26,8 @@ const Auth0ProviderWithHistory = ({ children }) => {
   )
 }
 
-// Add prop type validation
 Auth0ProviderWithHistory.propTypes = {
-  children: PropTypes.node.isRequired, // Validate children prop
+  children: PropTypes.node.isRequired,
 }
 
 export default Auth0ProviderWithHistory
-// import React from 'react'
-// import PropTypes from 'prop-types' // Import PropTypes
-// import { Auth0Provider } from '@auth0/auth0-react'
-
-// const Auth0ProviderWithHistory = ({ children, history }) => {
-//   const domain = process.env.REACT_APP_AUTH0_DOMAIN
-//   const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID
-
-//   //   const onRedirectCallback = () => {
-//   //     history.push('/user')
-//   //   }
-//   const onRedirectCallback = (appState) => {
-//     history.push(
-//       appState && appState.targetUrl
-//         ? appState.targetUrl
-//         : (window.location.href = '/user')
-//     )
-//   }
-
-//   return (
-//     <Auth0Provider
-//       domain={domain}
-//       clientId={clientId}
-//       redirectUri={window.location.origin}
-//       onRedirectCallback={onRedirectCallback}
-//     >
-//       {children}
-//     </Auth0Provider>
-//   )
-// }
-
-// // Add PropTypes validation
-// Auth0ProviderWithHistory.propTypes = {
-//   children: PropTypes.node.isRequired,
-//   history: PropTypes.object.isRequired,
-// }
-
-// export default Auth0ProviderWithHistory
