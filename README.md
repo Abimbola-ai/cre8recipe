@@ -10,33 +10,9 @@ Cre8Recipe is a web application that allows users to discover, create, and share
 - **Social Sharing:** Share your favorite recipes on social media platforms and discover recipes shared by other users in the community.
 - **Responsive Design:** Enjoy a seamless user experience across devices, including desktops, tablets, and smartphones.
 
-## Installation
+## Link to project
 
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/yourusername/cre8recipe.git
-   ```
-
-2. Navigate to the project directory:
-
-   ```bash
-   cd cre8recipe
-   ```
-
-3. Install dependencies:
-
-   ```bash
-   npm install
-   ```
-
-4. Start the development server:
-
-   ```bash
-   npm start
-   ```
-
-5. Open your web browser and visit [https://cre8recipe.netlify.app)](https://cre8recipe.netlify.app) to view the application.
+[https://cre8recipe.netlify.app)](https://cre8recipe.netlify.app)
 
 ## Technologies Used
 
