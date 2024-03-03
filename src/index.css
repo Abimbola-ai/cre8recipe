@@ -116,3 +116,28 @@ body {
 .btn-custom:hover button {
   background-color: #b5f5f2;
 }
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.link:hover {
+  text-decoration: none;
+}
+
+.coupon-item {
+  background: #7bb7b4;
+}
+.coupon-container {
+  margin-top: 5rem;
+}
+
+.top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff; /* Optionally, add background color */
+  z-index: 1000; /* Ensure it appears above other content */
+}
