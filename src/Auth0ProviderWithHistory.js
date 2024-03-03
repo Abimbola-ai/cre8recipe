@@ -46,7 +46,7 @@ const Auth0ProviderWithHistory = ({ children, history }) => {
     history.push(
       appState && appState.targetUrl
         ? appState.targetUrl
-        : (window.location.href = '/user')
+        : (window.location.href = 'https://cre8recipe.netlify.app/user')
     )
   }
 
