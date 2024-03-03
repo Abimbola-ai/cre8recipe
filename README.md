@@ -10,10 +10,6 @@ Cre8Recipe is a web application that allows users to discover, create, and share
 - **Social Sharing:** Share your favorite recipes on social media platforms and discover recipes shared by other users in the community.
 - **Responsive Design:** Enjoy a seamless user experience across devices, including desktops, tablets, and smartphones.
 
-## Link to project
-
-[https://cre8recipe.netlify.app)](https://cre8recipe.netlify.app)
-
 ## Technologies Used
 
 - React: Frontend library for building user interfaces.
