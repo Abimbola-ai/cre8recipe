@@ -16,6 +16,8 @@ Cre8Recipe is a web application that allows users to discover, create, and share
 - React Router: Declarative routing for React applications.
 - Auth0: Authentication and authorization platform for securing applications.
 - Bootstrap: Frontend framework for responsive and mobile-first web development.
+
+## Future Technologies To Use
 - Node.js: JavaScript runtime environment for building scalable server-side applications.
 - Express: Web application framework for Node.js.
 - MongoDB: NoSQL database for storing application data.
